@@ -3,6 +3,7 @@ package an.compuerv2.controller;
 
 // Importing required classes
 import an.compuerv2.model.Computer;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import an.compuerv2.service.ComputerService;
 
@@ -35,21 +36,25 @@ public class ComputerController {
 
     // Save operation
     @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Computer saveComputer(@RequestBody Computer computer) {
         return computerService.saveComputer(computer);
     }
 
     // Update operation
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Computer updateComputer(@RequestBody Computer computer)
     {
         return computerService.updateComputer(computer);
     }
     // Delete operation
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteComputer(@PathVariable("id")Integer id) {
         computerService.deleteComputer(id);
     }
+
 
 
 

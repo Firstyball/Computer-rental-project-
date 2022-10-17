@@ -5,6 +5,7 @@ package an.compuerv2.controller;
 import an.compuerv2.model.Category;
 import an.compuerv2.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,21 +38,25 @@ public class CategoryController {
 
     // Save operation
     @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Category saveCategory(@RequestBody Category category) {
         return categoryService.saveCategory(category);
     }
 
     // Update operation
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Category updateCategory(@RequestBody Category category) {
         return categoryService.updateCategory(category);
     }
 
     // Delete operation
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteCategory(@PathVariable("id")Integer id) {
         categoryService.deleteCategory(id);
     }
+
 
 
 

@@ -1,10 +1,11 @@
 package an.compuerv2.controller;
 
 
-import an.compuerv2.model.Category;
+
 import an.compuerv2.model.Reservation;
 import an.compuerv2.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,21 +39,25 @@ public class ReservationController {
 
     // Save operation
     @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Reservation saveReservation(@RequestBody Reservation reservation) {
         return reservationService.saveReservation(reservation);
     }
 
     // Update operation
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Reservation updateReservation(@RequestBody Reservation reservation) {
         return reservationService.updateReservation(reservation);
     }
 
     // Delete operation
     @DeleteMapping("/{idReservation}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteReservation(@PathVariable("idReservation")Integer idReservation) {
         reservationService.deleteReservation(idReservation);
     }
+
 
 
 

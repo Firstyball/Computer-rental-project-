@@ -4,6 +4,7 @@ package an.compuerv2.controller;
 // Importing required classes
 import an.compuerv2.model.Client;
 import an.compuerv2.service.ClientService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,20 +37,24 @@ public class ClientController {
 
     // Save operation
     @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Client saveClient(@RequestBody Client client) {
         return clientService.saveClient(client);
     }
 
     // Update operation
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Client updateClient(@RequestBody Client client)
     {
         return clientService.updateClient(client);
     }
     // Delete operation
     @DeleteMapping("/{idClient}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteClient(@PathVariable("idClient")Integer idClient) {
         clientService.deleteClient(idClient);
     }
+
 
 }

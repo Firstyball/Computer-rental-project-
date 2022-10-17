@@ -5,6 +5,7 @@ package an.compuerv2.controller;
 import an.compuerv2.model.Admin;
 import an.compuerv2.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,20 +39,24 @@ public class AdminController {
 
     // Save operation
     @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Admin saveAdmin(@RequestBody Admin admin) {
         return adminService.saveAdmin(admin);
     }
 
     // Update operation
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Admin updateAdmin(@RequestBody Admin admin) {
         return adminService.updateAdmin(admin);
     }
 
     // Delete operation
     @DeleteMapping("/{idAdmin}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteAdmin(@PathVariable("idAdmin")Integer idAdmin) {
         adminService.deleteAdmin(idAdmin);
     }
+
 
 }

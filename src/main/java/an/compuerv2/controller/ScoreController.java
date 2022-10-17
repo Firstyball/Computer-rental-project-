@@ -2,9 +2,9 @@
 package an.compuerv2.controller;
 
 // Importing required classes
-import an.compuerv2.model.Message;
 import an.compuerv2.model.Score;
 import an.compuerv2.service.ScoreService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,19 +37,23 @@ public class ScoreController {
 
     // Save operation
     @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Score saveScore(@RequestBody Score score) {
         return scoreService.saveScore(score);
     }
 
     // Update operation
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Score updateScore(@RequestBody Score score)
     {
         return scoreService.updateScore(score);
     }
     // Delete operation
     @DeleteMapping("/{idScore}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteScore(@PathVariable("idScore")Integer idScore) {
         scoreService.deleteScore(idScore);
     }
+
 }
