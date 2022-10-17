@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 // Annotations
+@CrossOrigin(origins="*",methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RestController
 @RequestMapping("/api/Category")
 // Class
@@ -23,6 +24,7 @@ public class CategoryController {
     }
 
     // Read operations
+
     @GetMapping("/all")
     public List<Category> finAllCategory() {
         return categoryService.finAllCategory();
