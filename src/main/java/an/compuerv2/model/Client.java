@@ -29,17 +29,17 @@ public class Client {
     @Column(name = "`idClient`")
     private Integer idClient;
 
-    @Column(name = "name")
-    private String name;
-
     @Column(name = "email")
     private String email;
 
-    @Column(name = "age")
-    private Integer age;
-
     @Column(name = "password")
     private String password;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "age")
+    private Integer age;
 
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")

@@ -27,7 +27,7 @@ public class Reservation {
     private Integer idReservation;
 
     @Column(name = "`starDate`")
-    private Date starDate;
+    private Date startDate;
 
     @Column(name = "`devolutionDate`")
     private Date devolutionDate;

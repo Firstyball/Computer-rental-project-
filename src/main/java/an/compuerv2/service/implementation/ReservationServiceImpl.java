@@ -55,8 +55,8 @@ public class ReservationServiceImpl implements ReservationService {
         if (reservation.getIdReservation() != null) {
             Optional<Reservation> messageFound = reservationRepository.findById(reservation.getIdReservation());
             if (!messageFound.isEmpty()) {
-                if (reservation.getStarDate() != null) {
-                    messageFound.get().setStarDate(reservation.getStarDate());
+                if (reservation.getStartDate() != null) {
+                    messageFound.get().setStartDate(reservation.getStartDate());
                 }
                 if (reservation.getDevolutionDate() != null) {
                     messageFound.get().setDevolutionDate(reservation.getDevolutionDate());
