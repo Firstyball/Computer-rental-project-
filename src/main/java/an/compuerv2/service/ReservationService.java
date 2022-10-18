@@ -4,7 +4,10 @@ package an.compuerv2.service;
 // Importing required classes
 import an.compuerv2.model.Category;
 import an.compuerv2.model.Reservation;
+import an.compuerv2.model.reports.TotalAndClient;
+import org.springframework.data.jpa.repository.Query;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,5 +26,12 @@ public interface ReservationService {
 
     // Delete operation
     void deleteReservation(Integer idReservation);
+
+    //Reporting Methods
+     List<Reservation> getReservationBetweenDAtes(Date fechaA, Date fechaB);
+
+    List<Reservation> getReservationsByStatus(String status);
+
+    List<TotalAndClient> getTopClients();
 
 }
